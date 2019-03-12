@@ -8,3 +8,6 @@ This is a website project made with Flask and uses a Mysql Database.
 
 *Pour ajouter des dépendances* 
 `pip freeze > requirements.txt`
+
+*Pour quitter le venv en cli*
+`deactivate`

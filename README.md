@@ -11,3 +11,6 @@ This is a website project made with Flask and uses a Mysql Database.
 
 *Pour quitter le venv en cli*
 `deactivate`
+
+# Démarrage de l'application
+`python app.py`

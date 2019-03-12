@@ -1,4 +1,4 @@
-# Foodcart
+# FoodCart
 This is a website project made with Flask and uses a Mysql Database.
 
 # Préparation de l'environnement de travail (virtualenv)

@@ -25,7 +25,7 @@ def remove_from_cart(id):
 
 @app.route('/cart/<id>', methods=['PUT'])
 def change_item_from_cart(id):
-    return f"changed quantity of item {id} to "
+    return f"changed quantity of item {id}"
 
 
 if __name__ == '__main__':

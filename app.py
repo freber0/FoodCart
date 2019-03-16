@@ -6,6 +6,7 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 
+
 @app.route('/cart/<id>')
 def add_to_cart(id):
     return f"Ajout du produit avec le id {id} au panier"

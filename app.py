@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -12,4 +12,4 @@ def add_to_cart(id):
     return f"Ajout du produit avec le id {id} au panier"
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True) #pas besoin de reboot Flask

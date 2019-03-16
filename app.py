@@ -28,6 +28,5 @@ def change_item_from_cart(id):
     return f"changed quantity of item {id} to "
 
 
-
 if __name__ == '__main__':
     app.run(debug=True)

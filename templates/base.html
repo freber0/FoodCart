@@ -4,28 +4,25 @@
     <meta charset="utf-8">
     <title>Accueil</title>
   </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
   <style>
 </style>
-  <body class="d-flex flex-column h-100">
-<main>
-  <div class="container">
-    <h1 class="mt-5">Bienvenue sur FoodCart</h1>
-    <link rel="stylesheet" type="text/css" href="/static/static.css">
-    <div id="locator">
-      <h2> Promotion du jour</h2>
+    <body class="d-flex flex-column h-100">
+  {% block content %}
+      <nav>
+    <div class="nav-wrapper">
+        <ul class="center-align">
+      <a href="#" class="brand-logo">FoodCart</a>
+        </ul>
     </div>
-    <form>
-          <input type="text" placeholder="Search..." required>
-          <input type="button" value="Recherche">
-    </form>
-    <ul>
-  <li><a href="#fruit">Fruit</a></li>
-  <li><a href="#legume">Legume</a></li>
-  <li><a href="#viande">Viande</a></li>
-  <li><a href="#pain">Pain</a></li>
-  <li><a href="#produit">Produit laitier</a></li>
-    </ul>
-  </div>
+  </nav>
+
+
+
+
+    {% endblock %}
 </main>
+  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
 </body>
 </html>

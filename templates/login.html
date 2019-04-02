@@ -7,7 +7,7 @@
 <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
 <body>
 <div class="row">
-    <form class="col s12">
+    <form class="col s12", method="POST">
       <div class="row">
         <div class="input-field col s6">
           <input id="first_name" type="text" class="validate">
@@ -20,7 +20,12 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
+          <input name="u" id="username" type="text" class="validate">
+          <label for="username">Username</label>
+        </div>
+          <div class="row">
+        <div class="input-field col s12">
+          <input name="p" id="password" type="password" class="validate">
           <label for="password">Password</label>
         </div>
       </div>
@@ -31,6 +36,9 @@
             <span class="helper-text" data-error="wrong" data-success="right"></span>
         </div>
       </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right"></i>
+  </button>
     </form>
   </div>
 

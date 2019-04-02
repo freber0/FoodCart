@@ -5,7 +5,7 @@ itsdangerous==1.1.0
 Jinja2==2.10
 MarkupSafe==1.1.1
 mutagen==1.41.0
-mysql-connector==2.1.6
+mysql-connector==2.2.9
 mysql-connector-python==8.0.15
 requests==2.21.0
 virtualenv==15.1.0

@@ -6,23 +6,41 @@
   </head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+  <script type="text/javascript" src="/static/js/materialize.js"></script>
   <style>
 </style>
+
     <body class="d-flex flex-column h-100">
-  {% block content %}
+
       <nav>
-    <div class="nav-wrapper">
+    <div class="navbar-fixed">
         <ul class="center-align">
-      <a href="#" class="brand-logo">FoodCart</a>
+      <a href="/" class="brand-logo">FoodCart<i class="material-icons">shopping_cart</i></a>
+        </ul>
+        <ul class="right">
+          <li><a href="login">Login</a></li>
+          <li><a href="#Signup">Sign up</a></li>
+            <li><a href="#cart">Your Cart</a></li>
         </ul>
     </div>
   </nav>
+{% block content %}
 
 
-
+        <ul id="slide-out" class="sidenav">
+        <li><a href="#!">Fruits</a></li>
+        <li><a href="#!">Légumes</a></li>
+        <li><a href="#!">Pains</a></li>
+        <li><a href="#!">Viande</a></li>
+        </ul>
+        <a  data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
 
     {% endblock %}
 </main>
-  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/static/js/materialize.js"></script>
+    <script>
+        const slide_menu = document.querySelectorAll(".sidenav");
+        M.Sidenav.init(slide_menu,{});
+    </script>
 </body>
 </html>

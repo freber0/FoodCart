@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login Page</title>
-</head>
-<link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 <div class="row">
     <form class="col s12", method="POST">
       <div class="row">
@@ -41,7 +36,6 @@
   </button>
     </form>
   </div>
+{% endblock %}
 
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
-</body>
-</html>

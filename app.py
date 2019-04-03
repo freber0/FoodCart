@@ -12,6 +12,21 @@ def hello():
 def add_to_cart(id):
     return f"Ajout du produit avec le id {id} au panier"
 
+@app.route('/signup')
+def signup_page():
+    return render_template('Signup.html')
+
+@app.route('/about')
+def about_page():
+    return render_template('about.html')
+
+@app.route('/cart')
+def cart_page():
+    return render_template('cart.html')
+
+@app.route('/account')
+def account_page():
+    return render_template('account.html')
 
 @app.route('/login')
 def login_page():
@@ -26,7 +41,6 @@ def authentication():
     cursor.execute("USE FoodCart;")
     cursor.execute("SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "';")
     data = cursor.fetchone()
-
     if data is None:
         return "Mauvais Username ou Mot de Passe"
     else:

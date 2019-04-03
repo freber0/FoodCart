@@ -2,40 +2,20 @@
 
 {% block content %}
 <div class="row">
+    <H1 align="center" >Login to FoodCart!</H1>
     <form class="col s12", method="POST">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
         <div class="input-field col s12">
-          <input name="u" id="username" type="text" class="validate">
+          <input name="u" id="username" type="text" class="validate" required>
           <label for="username">Username</label>
         </div>
-          <div class="row">
+
         <div class="input-field col s12">
-          <input name="p" id="password" type="password" class="validate">
+          <input name="p" id="password" type="password" class="validate" required>
           <label for="password">Password</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-            <span class="helper-text" data-error="wrong" data-success="right"></span>
-        </div>
-      </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="material-icons right"></i>
+
+          <button class="btn waves-effect blue-grey" type="submit" name="action">Submit<i class="material-icons right">send</i>
   </button>
     </form>
   </div>
 {% endblock %}
-
-    <script type="text/javascript" src="/static/js/materialize.min.js"></script>

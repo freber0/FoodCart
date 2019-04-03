@@ -11,20 +11,49 @@
 </style>
 
     <body class="d-flex flex-column h-100">
-
       <nav>
     <div class="navbar-fixed">
         <ul class="center-align">
       <a href="/" class="brand-logo">FoodCart<i class="material-icons">shopping_cart</i></a>
         </ul>
+        <ul class="left">
+            <li><a href="login">Login</a></li>
+            <li><a href="signup">Sign up</a></li>
+        </ul>
         <ul class="right">
-          <li><a href="login">Login</a></li>
-          <li><a href="#Signup">Sign up</a></li>
-            <li><a href="#cart">Your Cart</a></li>
+            <li><a href="cart">Your Cart</a></li>
+            <li><a href="about">About us</a></li>
+            <li><a href="account"><i class="material-icons">account_circle</i></a></li>
         </ul>
     </div>
   </nav>
 {% block content %}
+
+<div class="row">
+
+      <div class="col s3">
+        <!-- left sidebar pour les catégories -->
+          <form>
+            <div class="input-field">
+                <input id="search" type="search" required>
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+          </form>
+          <div class="left-nav">
+            <a href="#Légumes">Légumes</a>
+            <a href="#Fruits">Fruits</a>
+            <a href="#Viandes">Viandes</a>
+            <a href="#Pains">Pains</a>
+
+          </div>
+      </div>
+
+      <div class="col s9">
+        <!-- Content du milieu (produits)  -->
+      </div>
+
+    </div>
 
 
         <ul id="slide-out" class="sidenav">
@@ -37,7 +66,7 @@
 
     {% endblock %}
 </main>
-  <script type="text/javascript" src="/static/js/materialize.js"></script>
+  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
     <script>
         const slide_menu = document.querySelectorAll(".sidenav");
         M.Sidenav.init(slide_menu,{});

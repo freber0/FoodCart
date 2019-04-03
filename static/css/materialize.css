@@ -9083,3 +9083,28 @@ input[type=range]::-ms-thumb {
     margin-top: 1.2rem;
   }
 }
+.left-nav {
+  width: 130px;
+  position: fixed;
+  z-index: 1;
+  top: 250px;
+  left: 30px;
+  display: inline-block;
+  background: green;
+  overflow-x: hidden;
+  padding: 1px 0;
+  box-shadow: 1px 2px;
+}
+
+.left-nav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: white;
+  display: inline-block;
+}
+
+.left-nav a:hover {
+  color: #064579;
+}
+

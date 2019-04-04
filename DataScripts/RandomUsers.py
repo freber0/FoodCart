@@ -1,5 +1,4 @@
-from mysql.connector import connect
-from foodcart.Connection import cursor, mydb
+from foodcart.connection.db_utils import mydb, cursor
 import random
 
 user_name = ["titoine34", "bob12"]

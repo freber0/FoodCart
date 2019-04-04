@@ -51,25 +51,29 @@
 
       <div class="col s9">
         <!-- Content du milieu (produits)  -->
+            <div class="row">
+                <div class="col s12 m6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="https://assets.afcdn.com/recipe/20170607/67370_w300h300c1cx350cy350.jpg">
+                      <span class="card-title">Card Title</span>
+                      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                  </div>
+                </div>
+  </div>
+
       </div>
 
     </div>
 
 
-        <ul id="slide-out" class="sidenav">
-        <li><a href="#!">Fruits</a></li>
-        <li><a href="#!">Légumes</a></li>
-        <li><a href="#!">Pains</a></li>
-        <li><a href="#!">Viande</a></li>
-        </ul>
-        <a  data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-
     {% endblock %}
 </main>
   <script type="text/javascript" src="/static/js/materialize.min.js"></script>
-    <script>
-        const slide_menu = document.querySelectorAll(".sidenav");
-        M.Sidenav.init(slide_menu,{});
-    </script>
+
 </body>
 </html>

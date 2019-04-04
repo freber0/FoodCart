@@ -1,5 +1,5 @@
 from foodcart.connection.db_utils import *
-from foodcart.models import User
+from foodcart.models.User import User
 
 
 def get_user_from_username(username):

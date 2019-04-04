@@ -1,5 +1,5 @@
 from mysql.connector import connect
-from foodcart.Connection import cursor, mydb
+from foodcart.connection.db_utils import cursor, mydb
 import random
 
 meat_type = ["Steak", "Côte Levée", "Filet mignon", "Entre cote", "Filet de boeuf", "Faux-filet", "Bavette",

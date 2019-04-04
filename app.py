@@ -51,4 +51,4 @@ def login():
 
 if __name__ == '__main__':
     login_manager.init_app(app)
-    app.run(debug=True)  # pas besoin de reboot Flask
+    app.run(debug=True)

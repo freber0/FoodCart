@@ -11,7 +11,6 @@ login_manager = LoginManager()
 @app.route('/')
 @login_required
 def hello():
-    print(current_user.get_id())
     return flask.render_template('accueil.html')
 
 

@@ -1,5 +1,5 @@
 from mysql.connector import connect
-from foodcart.Connection import cursor, mydb
+from foodcart.connection.db_utils import cursor, mydb
 import random
 
 bread_type = ["Pain blanc", "Pain brun", "Pain fait maison", "Pain fait a la main", "Pain grain entier", "Croissant", "Pain au raisin",

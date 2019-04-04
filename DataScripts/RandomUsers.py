@@ -1,5 +1,4 @@
-from mysql.connector import connect
-from foodcart.Connection import cursor, mydb
+from foodcart.connection.db_utils import mydb, cursor
 import random
 
 user_name = ["titoine34", "bob12"]
@@ -21,7 +20,7 @@ def Users(cursor, number):
 
     for i in range(0, number):
         username = random.choice(user_name)
-        password = 1234
+        password = "pbkdf2:sha256:50000$SaIBbMPP$93f1663166b195afb39cc87de05f361b690dacb95d0f10dc7c01c6adeed218a7"
         nom = random.choice(name)
         prenom = random.choice(user_prenom)
         email = random.choice(user_email)

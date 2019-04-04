@@ -1,5 +1,4 @@
-from mysql.connector import connect
-from foodcart.Connection import cursor, mydb
+from foodcart.connection.db_utils import cursor, mydb
 import random
 
 vegetables_name = ["Brocoli", "Carotte", "Betterave", "Courge", "Citrouille", "Aubergine", "Piment", "Navet",

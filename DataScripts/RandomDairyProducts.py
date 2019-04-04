@@ -1,5 +1,4 @@
 from mysql.connector import connect
-from foodcart.Connection import cursor, mydb
 import random
 
 dairy_type = ["Lait", "Fromage", "Yogourt", "Fromage en grains", "Lait sans lactose", "Fromage feta", "Fromage Cottage",

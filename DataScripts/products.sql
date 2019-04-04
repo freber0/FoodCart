@@ -1,0 +1,28 @@
+use FoodCart;
+INSERT INTO products(product_id, class_name, name, price, image)
+VALUES
+(1, "produit_laitier","Lait", 2.50, "https://www.alimentsduquebec.com/files/20171215/can-300-55091_1513347194.jpg"),
+(2, "viande", "Filet mignon", 11.99, "http://www.huntspoint.com/media/catalog/product/cache/2/image/700x700/9df78eab33525d08d6e5fb8d27136e95/f/i/filet_2_2.jpg"),
+(3, "legume", "Brocoli", 2.99, "http://sekapporchard.com/wp-content/uploads/2013/09/Broccoli.jpg"),
+(4, "fruit", "Orange", 1.99, "https://d3nevzfk7ii3be.cloudfront.net/igi/KRLMkuaBjm5mKDDP"),
+(5, "pain", "Pain Blanc", 1.49, "http://gadoua.qc.ca/wp-content/uploads/2016/09/moelleux-blanc-epais.png"),
+(6, "viande", "Steak", 7.99, "https://static.seriouseats.com/1/braestar/live/pages/steak/images/flank.png"),
+(7, "viande", "Bavette", 9.99, "https://cdn.shopify.com/s/files/1/2808/1390/products/bavette_steak_1024x1024.jpg?v=1523873704"),
+(8, "pain", "Pain Multi grain", 1.99, "https://www.bonmatin.ca/sites/default/files/94009_BonMatin_MG-Sans-sucre_STRAIGHT.png"),
+(9, "fruit", "Fraise", 3.99, "http://upload.wikimedia.org/wikipedia/commons/8/86/Fraises_2_Luc_Viatour.jpg"),
+(10, "fruit", "Banane", 0.49, "http://i.ebayimg.com/images/g/JZAAAOSwA3dYgOtq/s-l1600.jpg"),
+(11, "fruit", "Kiwi", 4.79, "http://www.allgreensites.com/news/gallery/7-green-foods-with-extraordinary-healing-powers/kiwi.jpg"),
+(12, "fruit", "Pitaya", 2.79, "https://qflf.files.wordpress.com/2011/03/dragon-fruit.jpg"),
+(13, "fruit", "Citron", 1.59, "https://mandorlata.files.wordpress.com/2013/11/citron.jpg"),
+(14, "fruit", "Lime", 1.49, "https://wallscover.com/images/lime-4.jpg"),
+(16, "viande", "T-bone", 12.99, "http://cdn3.volusion.com/arvnw.qjmwo/v/vspfiles/photos/1005-2.jpg"),
+(15, "fruit", "Carambole", 3.29, "https://www.freegreatpicture.com/files/photo63/31300-carambole.jpg"),
+(17, "viande", "Bifteak", 9.99, "https://az836796.vo.msecnd.net/media/image/product/fr/large/0021157400000.jpg"),
+(18, "viande", "Paleron", 8.99, "http://static.weezbe.com/artizana/Images/products/p_371G_120219154137.png"),
+(19, "viande", "Flanchet", 7.99, "https://i2.wp.com/up.picr.de/24190393rb.jpg"),
+(20, "viande", "Roti", 8.99, "http://www.aci-avignon.com/boutique/wp-content/uploads/2012/11/roti-farci-boeuf.jpg"),
+(21, "viande", "Tartare", 10.99, "https://assets.dan-on.com/global/recipes/195700_tartare-de-boeuf-1920x1400.jpg"),
+(22, "legume", "Carotte", 1.39, "https://www.straitsmarket.com/wp-content/uploads/2015/07/carrots.jpg"),
+(23, "legume", "Oignon", 1.19, "https://images.freeimages.com/images/large-previews/e5f/oignon-1479624.jpg"),
+(24, "legume", "Piment", 1.89, "https://gemmedelamonteregie.ca/wp-content/uploads/2012/05/PIMENT-VERT.png"),
+(25, "legume", "Comcombre", 0.79, "https://fridg-front.s3.amazonaws.com/media/products/451.jpg");

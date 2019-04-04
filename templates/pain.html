@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+<body>
+    {% for pain in data %}
+    <p>
+       {{pain[2]}}, <b>Prix : {{pain[3]}} </b>
+    </p>
+    <p>
+        <img src="{{pain[4]}}" style="max-height: 30vh" >
+    </p>
+    {% endfor %}
+</body>
+</html>

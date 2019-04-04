@@ -5,7 +5,7 @@ from DataScripts.RandomFruits import Fruits
 from DataScripts.RandomBreads import Breads
 from DataScripts.RandomMeat import Meats
 from DataScripts.RandomDairyProducts import Dairy_products
-
+from DataScripts.RandomUsers import Users
 
 import random
 
@@ -15,5 +15,7 @@ def Create_db():
     Breads(cursor, 50)
     Meats(cursor, 50)
     Dairy_products(cursor, 50)
+    Users(cursor,2)
+
 
 Create_db()

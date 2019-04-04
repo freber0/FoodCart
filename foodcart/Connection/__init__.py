@@ -1,5 +1,6 @@
 from mysql.connector import connect
 
+
 #Sert a faire la connection avec la BD
 mydb = connect(
     host="localhost",

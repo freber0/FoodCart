@@ -4,28 +4,72 @@
     <meta charset="utf-8">
     <title>Accueil</title>
   </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+  <script type="text/javascript" src="/static/js/materialize.js"></script>
   <style>
 </style>
-  <body class="d-flex flex-column h-100">
-<main>
-  <div class="container">
-    <h1 class="mt-5">Bienvenue sur FoodCart</h1>
-    <link rel="stylesheet" type="text/css" href="/static/static.css">
-    <div id="locator">
-      <h2> Promotion du jour</h2>
+
+    <body class="d-flex flex-column h-100">
+      <nav>
+    <div class="navbar-fixed">
+        <ul class="center-align">
+      <a href="/" class="brand-logo">FoodCart<i class="material-icons">shopping_cart</i></a>
+        </ul>
+        <ul class="left">
+            <li><a href="login">Login</a></li>
+            <li><a href="signup">Sign up</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="cart">Your Cart</a></li>
+            <li><a href="about">About us</a></li>
+            <li><a href="account"><i class="material-icons">account_circle</i></a></li>
+        </ul>
     </div>
-    <form>
-          <input type="text" placeholder="Search..." required>
-          <input type="button" value="Recherche">
-    </form>
-    <ul>
-  <li><a href="#fruit">Fruit</a></li>
-  <li><a href="#legume">Legume</a></li>
-  <li><a href="#viande">Viande</a></li>
-  <li><a href="#pain">Pain</a></li>
-  <li><a href="#produit">Produit laitier</a></li>
-    </ul>
-  </div>
+  </nav>
+{% block content %}
+
+<div class="row">
+
+      <div class="col s3">
+        <!-- left sidebar pour les catégories -->
+          <form>
+            <div class="input-field">
+                <input id="search" type="search" required>
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+          </form>
+          <div class="left-nav">
+            <a href="#Légumes">Légumes</a>
+            <a href="#Fruits">Fruits</a>
+            <a href="#Viandes">Viandes</a>
+            <a href="#Pains">Pains</a>
+
+          </div>
+      </div>
+
+      <div class="col s9">
+        <!-- Content du milieu (produits)  -->
+      </div>
+
+    </div>
+
+
+        <ul id="slide-out" class="sidenav">
+        <li><a href="#!">Fruits</a></li>
+        <li><a href="#!">Légumes</a></li>
+        <li><a href="#!">Pains</a></li>
+        <li><a href="#!">Viande</a></li>
+        </ul>
+        <a  data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+
+    {% endblock %}
 </main>
+  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <script>
+        const slide_menu = document.querySelectorAll(".sidenav");
+        M.Sidenav.init(slide_menu,{});
+    </script>
 </body>
 </html>

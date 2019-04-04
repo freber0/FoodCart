@@ -10,3 +10,4 @@ mysql-connector-python==8.0.15
 requests==2.21.0
 virtualenv==15.1.0
 Werkzeug==0.14.1
+

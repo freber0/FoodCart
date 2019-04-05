@@ -1,21 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'unauthenticated.html' %}
 
-{% block content %}
+{% block authentication %}
 <div class="row">
     <H1 align="center" >Login to FoodCart!</H1>
     <form class="col s12", method="POST">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         <div class="input-field col s12">
-          <input name="u" id="username" type="text" class="validate" required>
+          <input name="username" id="username" type="text" class="validate" required>
           <label for="username">Username</label>
         </div>
 
         <div class="input-field col s12">
-          <input name="p" id="password" type="password" class="validate" required>
+          <input name="password" id="password" type="password" class="validate" required>
           <label for="password">Password</label>
         </div>
 
           <button class="btn waves-effect blue-grey" type="submit" name="action">Submit<i class="material-icons right">send</i>
   </button>
     </form>
+        <h5 align="center">You don't have an account? <a href="signup">Sign up</a> for free!</h5>
   </div>
 {% endblock %}

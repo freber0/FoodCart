@@ -3,4 +3,9 @@
 {% block content %}
 
     <h1 align="center"> Your info</h1>
+    <h2 align="center">{{current_user.get_id()}}</h2>
+    <h2 align="center">{{current_user.email}}</h2>
+    <h2 align="center">{{current_user.firstname}}</h2>
+    <h2 align="center">{{current_user.lastname}}</h2>
+    <h2 align="center">{{current_user.address}}</h2>
 {% endblock %}

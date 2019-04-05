@@ -1,8 +1,6 @@
-from mysql.connector import connect
-from foodcart.Connection import cursor
 from DataScripts.RandomUsers import Users
+from foodcart.connection.db_utils import cursor
 
-import random
 
 def Create_db():
     Users(cursor,2)

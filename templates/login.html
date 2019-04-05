@@ -3,16 +3,16 @@
 {% block content %}
 <div class="row">
     <H1 align="center" >Login to FoodCart!</H1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class=flashes>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-        {% endif %}
-    {% endwith %}
     <form class="col s12", method="POST">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         <div class="input-field col s12">
           <input name="username" id="username" type="text" class="validate" required>
           <label for="username">Username</label>

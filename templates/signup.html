@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'unauthenticated.html' %}
 
-{% block content %}
+{% block authentication %}
 
 <div class="row">
     <H1 align="center">Sign up for free!</H1>
@@ -38,5 +38,7 @@
           <button class="btn waves-effect blue-grey" type="submit" name="action">Submit<i class="material-icons right">send</i>
           </button>
     </form>
+        <h5 align="center">Already have an account? <a href="login">Login</a> Here!</h5>
+
   </div>
 {% endblock %}

@@ -46,6 +46,19 @@ def authentication():
     else:
         return "Vous êtes connecté"
 
+@app.route('/fruits')
+def show_fruit():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='fruit' ")
+    data = cursor.fetchall()
+    return render_template('fruits.html', data=data)
+
+@app.route('/legumes')
+def show_legume():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='legume' ")
+    data = cursor.fetchall()
+    return render_template('legumes.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)  # pas besoin de reboot Flask

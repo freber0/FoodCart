@@ -50,15 +50,36 @@ def authentication():
 def show_fruit():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products where class_name ='fruit' ")
-    data = cursor.fetchall()
-    return render_template('fruits.html', data=data)
+    fruits= cursor.fetchall()
+    return render_template('fruits.html', data=fruits)
 
 @app.route('/legumes')
 def show_legume():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products where class_name ='legume' ")
-    data = cursor.fetchall()
-    return render_template('legumes.html', data=data)
+    legumes = cursor.fetchall()
+    return render_template('legume.html', data=legumes)
+
+@app.route('/viandes')
+def show_viandes():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='viande' ")
+    viandes = cursor.fetchall()
+    return render_template('viandes.html', data=viandes)
+
+@app.route('/boulangerie')
+def show_pains():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='pain' ")
+    pains = cursor.fetchall()
+    return render_template('boulangerie.html', data=pains)
+
+@app.route('/produit_laitier')
+def show_lait():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='produit_laitier' ")
+    lait = cursor.fetchall()
+    return render_template('produit_laitier.html', data=lait)
 
 if __name__ == '__main__':
     app.run(debug=True)  # pas besoin de reboot Flask

@@ -34,13 +34,12 @@ def account_page():
 
     print(form.validate_on_submit())
     if form.validate_on_submit():
-        user = user_loader(form.username.data)
-        print(user)
-
-        user = User(form.username.data, None, form.last_name.data, form.first_name.data, form.email.data,
+        user = User(current_user.get_id(), None, form.last_name.data, form.first_name.data, form.email.data,
                     form.address.data)
         user.set_pwd(form.password.data)
         UserRepository.update_user(user)
+        flask.flash('Your informations has been updated!')
+        print("hello")
         return flask.redirect(flask.url_for('account_page'))
 
     return flask.render_template('account.html')

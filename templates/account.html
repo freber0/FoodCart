@@ -2,23 +2,24 @@
 
 {% block content %}
 
-    <h1 align="center"> Your info</h1>
-    <h2 align="center">{{current_user.get_id()}}</h2>
-    <h2 align="center">{{current_user.email}}</h2>
-    <h2 align="center">{{current_user.firstname}}</h2>
-    <h2 align="center">{{current_user.lastname}}</h2>
-    <h2 align="center">{{current_user.address}}</h2>
-
     <div class="row">
     <H3 align="center">Change your account informations for <a>{{current_user.get_id()}}</a></H3>
-
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
     <form class="col s12", method="POST">
         <div class="input-field col s6">
-          <input  value ="{{current_user.firstname}}" id="first_name" name="first_name" type="text" class="validate">
+          <input  value ="{{current_user.firstname}}" id="first_name" name="first_name" type="text" class="validate" required>
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
-          <input value ="{{current_user.lastname}}" id="last_name" name="last_name" type="text" class="validate">
+          <input value ="{{current_user.lastname}}" id="last_name" name="last_name" type="text" class="validate" required>
           <label for="last_name">Last Name</label>
         </div>
         <div class="input-field col s12">
@@ -36,7 +37,7 @@
             <span class="helper-text" data-error="wrong" data-success="right"></span>
         </div>
 
-          <button class="btn waves-effect blue-grey" type="submit" name="action">Submit<i class="material-icons right">send</i>
+          <button class="btn waves-effect blue-grey" type="submit" name="action">Update<i class="material-icons right">send</i>
           </button>
     </form>
     </div>

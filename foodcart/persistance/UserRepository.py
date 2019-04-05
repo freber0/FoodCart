@@ -12,3 +12,10 @@ def get_user_from_username(username):
         return
 
     return User(data[0], data[1], data[2], data[3], data[4], data[5])
+
+
+def add_user(user):
+    cursor.execute("USE FoodCart;")
+    sql = "INSERT INTO user (username, password, nom, prenom, email, address) VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor.execute(sql, (user.username, user.password, user.lastname, user.firstname, user.email, user.address))
+    mydb.commit()

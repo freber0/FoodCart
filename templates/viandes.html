@@ -1,80 +1,21 @@
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
-    <title>Accueil</title>
-  </head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
-  <script type="text/javascript" src="/static/js/materialize.js"></script>
-  <style>
-</style>
+{% extends 'base.html' %}
 
-    <body class="d-flex flex-column h-100">
-      <nav>
-    <div class="navbar-fixed">
-        <ul class="center-align">
-      <a href="/" class="brand-logo">FoodCart<i class="material-icons">shopping_cart</i></a>
-        </ul>
-        <ul class="left">
-            <li><a href="login">Login</a></li>
-            <li><a href="signup">Sign up</a></li>
-        </ul>
-        <ul class="right">
-            <li><a href="cart">Your Cart</a></li>
-            <li><a href="about">About us</a></li>
-            <li><a href="account"><i class="material-icons">account_circle</i></a></li>
-        </ul>
-    </div>
-  </nav>
-{% block content %}
+{% block card %}
 
+{% for viande in data %}
 <div class="row">
-
-      <div class="col s3">
-        <!-- left sidebar pour les catégories -->
-          <form>
-            <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-          </form>
-          <div class="left-nav">
-            <a href="/legumes">Légumes</a>
-            <a href="/fruits">Fruits</a>
-            <a href="/viandes">Viandes</a>
-            <a href="/boulangerie">Boulangerie</a>
-            <a href="/produit_laitier">Produit laitier</a>
-
-          </div>
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{viande[4]}}">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>{{viande[2]}} <b>{{viande[3]}}</b></p>
+        </div>
       </div>
-
-      <div class="col s9">
-        <!-- Content du milieu (produits)  -->
-        {% for viande in data %}
-        <div class="row">
-            <div class="col s12 m6">
-              <div class="card">
-                <div class="card-image">
-                  <img src="{{viande[4]}}">
-                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                </div>
-                <div class="card-content">
-                  <p>{{viande[2]}} <b>{{viande[3]}}</b></p>
-                </div>
-              </div>
-            </div>
+    </div>
 </div>
 {% endfor %}
-  </div>
 
-</div>
-
-
-    {% endblock %}
-</main>
-  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
-
-</body>
-</html>
+{% endblock %}

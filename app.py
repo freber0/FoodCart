@@ -4,6 +4,7 @@ from foodcart.models.User import User
 from flask_login import LoginManager, login_required, login_user, current_user, logout_user
 from foodcart.forms.LoginForm import LoginForm
 from foodcart.forms.SignupForm import SignupForm
+from foodcart.forms.UpdateForm import UpdateForm
 
 app = flask.Flask(__name__)
 app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
@@ -25,9 +26,23 @@ def about_page():
 def cart_page():
     return flask.render_template('cart.html')
 
-@app.route('/account')
+@app.route('/account', methods=['GET', 'POST'])
 @login_required
 def account_page():
+
+    form = UpdateForm(flask.request.form)
+
+    print(form.validate_on_submit())
+    if form.validate_on_submit():
+        user = user_loader(form.username.data)
+        print(user)
+
+        user = User(form.username.data, None, form.last_name.data, form.first_name.data, form.email.data,
+                    form.address.data)
+        user.set_pwd(form.password.data)
+        UserRepository.update_user(user)
+        return flask.redirect(flask.url_for('account_page'))
+
     return flask.render_template('account.html')
 
 @app.route('/cart/<id>')

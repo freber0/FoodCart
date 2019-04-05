@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'unauthenticated.html' %}
 
-{% block content %}
+{% block authentication %}
 <div class="row">
     <H1 align="center" >Login to FoodCart!</H1>
     <form class="col s12", method="POST">
@@ -26,5 +26,6 @@
           <button class="btn waves-effect blue-grey" type="submit" name="action">Submit<i class="material-icons right">send</i>
   </button>
     </form>
+        <h5 align="center">You don't have an account? <a href="signup">Sign up</a> for free!</h5>
   </div>
 {% endblock %}

@@ -15,6 +15,20 @@ login_manager = LoginManager()
 def hello():
     return flask.render_template('accueil.html')
 
+@app.route('/about')
+@login_required
+def about_page():
+    return flask.render_template('about.html')
+
+@app.route('/cart')
+@login_required
+def cart_page():
+    return flask.render_template('cart.html')
+
+@app.route('/account')
+@login_required
+def account_page():
+    return flask.render_template('account.html')
 
 @app.route('/cart/<id>')
 @login_required
@@ -24,6 +38,10 @@ def add_to_cart(id):
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
+
+    if current_user.is_authenticated:
+        return flask.redirect(flask.url_for('hello'))
+
     form = SignupForm(flask.request.form)
     if form.validate_on_submit():
         user = user_loader(form.username.data)
@@ -38,14 +56,17 @@ def signup():
     return flask.render_template('signup.html', form=form)
 
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return flask.redirect(flask.url_for('hello'))
+
     form = LoginForm(flask.request.form)
     if form.validate_on_submit():
         user = user_loader(form.username.data)
         if user and user.check_pwd(form.password.data):
             login_user(user)
-            flask.flash('Logged in successfully.')
             return flask.redirect(flask.url_for('hello'))
         else:
             flask.flash('Invalid username or password. Please try again')

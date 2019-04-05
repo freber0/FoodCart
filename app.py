@@ -5,6 +5,7 @@ from flask_login import LoginManager, login_required, login_user, current_user, 
 from foodcart.forms.LoginForm import LoginForm
 from foodcart.forms.SignupForm import SignupForm
 from foodcart.forms.UpdateForm import UpdateForm
+from foodcart.connection.db_utils import cursor
 
 app = flask.Flask(__name__)
 app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
@@ -102,6 +103,40 @@ def user_loader(user_id):
 def unauthorized():
     return flask.redirect("login")
 
+@app.route('/fruits')
+def show_fruit():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='fruit' ")
+    fruits= cursor.fetchall()
+    return flask.render_template('fruits.html', data=fruits)
+
+@app.route('/legumes')
+def show_legume():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='legume' ")
+    legumes = cursor.fetchall()
+    return flask.render_template('legume.html', data=legumes)
+
+@app.route('/viandes')
+def show_viandes():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='viande' ")
+    viandes = cursor.fetchall()
+    return flask.render_template('viandes.html', data=viandes)
+
+@app.route('/boulangerie')
+def show_pains():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='pain' ")
+    pains = cursor.fetchall()
+    return flask.render_template('boulangerie.html', data=pains)
+
+@app.route('/produit_laitier')
+def show_lait():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products where class_name ='produit_laitier' ")
+    lait = cursor.fetchall()
+    return flask.render_template('produit_laitier.html', data=lait)
 
 if __name__ == '__main__':
     login_manager.init_app(app)

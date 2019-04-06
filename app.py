@@ -11,11 +11,19 @@ app = flask.Flask(__name__)
 app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
 login_manager = LoginManager()
 
-
 @app.route('/')
 @login_required
-def hello():
-    return flask.render_template('accueil.html')
+def root_page():
+    return flask.redirect(flask.url_for('home_page'))
+
+
+@app.route('/home')
+@login_required
+def home_page():
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products")
+    fruits= cursor.fetchall()
+    return flask.render_template('accueil.html', data=fruits)
 
 @app.route('/about')
 @login_required
@@ -38,7 +46,7 @@ def account_page():
                     form.address.data)
         user.set_pwd(form.password.data)
         UserRepository.update_user(user)
-        flask.flash('Your informations has been updated!')
+        flask.flash('Vos informations ont été mises à jour!')
         return flask.redirect(flask.url_for('account_page'))
 
     return flask.render_template('account.html')
@@ -53,7 +61,7 @@ def add_to_cart(id):
 def signup():
 
     if current_user.is_authenticated:
-        return flask.redirect(flask.url_for('hello'))
+        return flask.redirect(flask.url_for('root_page'))
 
     form = SignupForm(flask.request.form)
     if form.validate_on_submit():
@@ -65,7 +73,7 @@ def signup():
             UserRepository.add_user(user)
             return flask.redirect(flask.url_for('login'))
         else:
-            flask.flash('This username is already taken. Please try again.')
+            flask.flash('Ce mot de passe est déjà utilisé. Veuillez en choisir un autre')
     return flask.render_template('signup.html', form=form)
 
 
@@ -73,16 +81,16 @@ def signup():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return flask.redirect(flask.url_for('hello'))
+        return flask.redirect(flask.url_for('root_page'))
 
     form = LoginForm(flask.request.form)
     if form.validate_on_submit():
         user = user_loader(form.username.data)
         if user and user.check_pwd(form.password.data):
             login_user(user)
-            return flask.redirect(flask.url_for('hello'))
+            return flask.redirect(flask.url_for('root_page'))
         else:
-            flask.flash('Invalid username or password. Please try again')
+            flask.flash("Mauvais mot de passe ou nom d'usager")
     return flask.render_template('login.html', form=form)
 
 

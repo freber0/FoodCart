@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Accueil</title>
@@ -11,8 +11,8 @@
 </style>
 
     <body class="d-flex flex-column h-100">
-      <nav>
-    <div class="navbar-fixed">
+      <nav style="position: fixed; z-index:999;margin-bottom: 100px">
+    <div class="navbar-fixed" style ="margin-bottom: 100px">
         <ul class="center-align">
       <a href="/" class="brand-logo">FoodCart<i class="material-icons">shopping_cart</i></a>
         </ul>
@@ -60,7 +60,7 @@
 
     {% endblock %}
 </main>
-  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+<script type="text/javascript" src="/static/js/materialize.min.js"></script>
 
 </body>
 </html>

@@ -134,6 +134,8 @@ def show_lait():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products where class_name ='produit_laitier' ")
     lait = cursor.fetchall()
+    lait_droite = lait[len(lait)//2:]
+    lait_gauche = lait[:len(lait)//2]
     return flask.render_template('produit_laitier.html', data=lait)
 
 if __name__ == '__main__':

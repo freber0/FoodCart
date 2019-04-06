@@ -1,21 +1,19 @@
 {% extends 'base.html' %}
-
 {% block card %}
-
-{% for lait in data %}
-<div class="row">
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image">
-          <img src="{{lait[4]}}">
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+    {% for lait in data %}
+    <div class="col m3">
+      <div class="card large">
+        <div class="card-image hoverable large" style="max-height: 100%; height:350px">
+          <img style ="object-fit: cover;max-height: 100%" src="{{lait[4]}}">
+{#
+          <a class="btn-floating halfway-fab waves-effect waves-light red medium"><i class="material-icons">add</i></a>
+#}
         </div>
         <div class="card-content">
           <p>{{lait[2]}} <b>{{lait[3]}}</b></p>
+          <a class="btn-floating waves-circle orange "><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>
-</div>
-{% endfor %}
-
+    {% endfor %}
 {% endblock %}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Accueil</title>
@@ -11,17 +11,17 @@
 </style>
 
     <body class="d-flex flex-column h-100">
-      <nav>
-    <div class="navbar-fixed">
+      <nav style="position: fixed; z-index:999;margin-bottom: 100px">
+    <div class="navbar-fixed" style ="margin-bottom: 100px">
         <ul class="center-align">
-      <a href="/" class="brand-logo">FoodCart<i class="material-icons">shopping_cart</i></a>
+      <a href="/" class="brand-logo center">FoodCart<i class="material-icons">shopping_cart</i></a>
         </ul>
         <ul class="left">
-            <li><a href="logout">Logout</a></li>
+            <li><a href="logout">Déconnexion</a></li>
         </ul>
         <ul class="right">
-            <li><a href="cart">Your Cart</a></li>
-            <li><a href="about">About us</a></li>
+            <li><a href="cart">Mon panier</a></li>
+            <li><a href="about">À propos de nous</a></li>
             <li><a href="account"><i class="material-icons">account_circle</i></a></li>
         </ul>
     </div>
@@ -32,11 +32,11 @@
 
       <div class="col s3">
         <!-- left sidebar pour les catégories -->
-          <form>
-            <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
+          <form method="POST">
+            <div class="input-field row" style="position: fixed">
+                <i class="material-icons prefix" style="margin-left: 2vh; padding-top: 100px">search</i>
+                <input style= " padding-top: 100px" id="search" type="search" placeholder="Rechercher un produit">
+                <i style= " padding-top: 100px" class="material-icons">close</i>
             </div>
           </form>
           <div class="left-nav">
@@ -44,7 +44,7 @@
             <a href="/fruits">Fruits</a>
             <a href="/viandes">Viandes</a>
             <a href="/boulangerie">Boulangerie</a>
-            <a href="/produit_laitier">Produit laitier</a>
+            <a href="/produit_laitier">Produits laitier</a>
 
           </div>
       </div>
@@ -60,7 +60,7 @@
 
     {% endblock %}
 </main>
-  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+<script type="text/javascript" src="/static/js/materialize.min.js"></script>
 
 </body>
 </html>

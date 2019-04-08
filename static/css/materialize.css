@@ -4748,6 +4748,7 @@ small {
   background-color: #fff;
   -webkit-transition: -webkit-box-shadow .25s;
   transition: -webkit-box-shadow .25s;
+  margin-top: 75px;
   transition: box-shadow .25s;
   transition: box-shadow .25s, -webkit-box-shadow .25s;
   border-radius: 2px;
@@ -9084,7 +9085,7 @@ input[type=range]::-ms-thumb {
   }
 }
 .left-nav {
-  width: 130px;
+  width: 160px;
   position: fixed;
   z-index: 1;
   top: 250px;
@@ -9093,12 +9094,11 @@ input[type=range]::-ms-thumb {
   background: green;
   overflow-x: hidden;
   padding: 1px 0;
-  box-shadow: 1px 2px;
 }
 
 .left-nav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
+  padding: 30px 30px 30px 30px;
+  text-decoration: lavenderblush;
   font-size: 1.4rem;
   color: white;
   display: inline-block;

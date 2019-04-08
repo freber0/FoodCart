@@ -32,17 +32,18 @@
 
       <div class="col s3">
         <!-- left sidebar pour les catégories -->
-          <form method="POST">
+          <form action="/search" method="POST">
             <div class="input-field row" style="position: fixed">
                 <i class="material-icons prefix" style="margin-left: 2vh; padding-top: 100px">search</i>
-                <input style= " padding-top: 100px" id="search" type="search" placeholder="Rechercher un produit">
+                <input style= " padding-top: 100px" name="search" id="search" type="search" placeholder="Rechercher un produit">
                 <i style= " padding-top: 100px" class="material-icons">close</i>
             </div>
           </form>
           <div class="left-nav">
-            <a href="/legumes">Légumes</a>
-            <a href="/fruits">Fruits</a>
-            <a href="/viandes">Viandes</a>
+            <a href="/home">Tous les produits</a>
+            <a href="/legumes">Légume</a>
+            <a href="/fruits">Fruit</a>
+            <a href="/viandes">Viande</a>
             <a href="/boulangerie">Boulangerie</a>
             <a href="/produit_laitier">Produits laitier</a>
 

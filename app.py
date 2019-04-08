@@ -6,12 +6,12 @@ from foodcart.forms.LoginForm import LoginForm
 from foodcart.forms.SignupForm import SignupForm
 from foodcart.forms.UpdateForm import UpdateForm
 from foodcart.connection.db_utils import cursor
-from flask_cors import CORS, cross_origin
+from foodcart.forms.SearchForm import search
 
 app = flask.Flask(__name__)
 app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
 login_manager = LoginManager()
-CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 
 @app.route('/')
@@ -25,8 +25,16 @@ def root_page():
 def home_page():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products")
-    fruits = cursor.fetchall()
-    return flask.render_template('accueil.html', data=fruits)
+    products = cursor.fetchall()
+    return flask.render_template('accueil.html', data=products)
+
+
+@app.route('/search', methods=['GET', 'POST'])
+@login_required
+def search_page():
+    products = search()
+    print(products)
+    return flask.render_template('results.html', data=products)
 
 
 @app.route('/about')

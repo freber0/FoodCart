@@ -6,10 +6,13 @@ from foodcart.forms.LoginForm import LoginForm
 from foodcart.forms.SignupForm import SignupForm
 from foodcart.forms.UpdateForm import UpdateForm
 from foodcart.connection.db_utils import cursor
+from flask_cors import CORS, cross_origin
 
 app = flask.Flask(__name__)
 app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
 login_manager = LoginManager()
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 @app.route('/')
 @login_required
@@ -22,7 +25,7 @@ def root_page():
 def home_page():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products")
-    fruits= cursor.fetchall()
+    fruits = cursor.fetchall()
     return flask.render_template('accueil.html', data=fruits)
 
 
@@ -39,6 +42,7 @@ def cart_page():
 
 
 @app.route('/account', methods=['GET', 'POST'])
+@cross_origin(origin='*', headers=['Content- Type','Authorization'])
 @login_required
 def account_page():
     form = UpdateForm(flask.request.form)
@@ -54,9 +58,14 @@ def account_page():
     return flask.render_template('account.html')
 
 
-@app.route('/cart/<id>')
+@app.route('/cart/<id>', methods=['POST'])
 @login_required
 def add_to_cart(id):
+    if current_user.is_authenticated:
+        print(f"Current user id is {current_user.get_id()}")
+        print(f"Ajout du produit avec le id {id} au panier")
+    else:
+        return flask.redirect(flask.url_for('login'))
     return f"Ajout du produit avec le id {id} au panier"
 
 
@@ -149,8 +158,8 @@ def show_lait():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products where class_name ='produit_laitier' ")
     lait = cursor.fetchall()
-    lait_droite = lait[len(lait)//2:]
-    lait_gauche = lait[:len(lait)//2]
+    lait_droite = lait[len(lait) // 2:]
+    lait_gauche = lait[:len(lait) // 2]
     return flask.render_template('produit_laitier.html', data=lait)
 
 

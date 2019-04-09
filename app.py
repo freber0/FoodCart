@@ -1,5 +1,5 @@
 import flask
-from foodcart.persistance import UserRepository
+from foodcart.persistance import UserRepository, OrderRepository
 from foodcart.models.User import User
 from flask_login import LoginManager, login_required, login_user, current_user, logout_user
 from foodcart.forms.LoginForm import LoginForm
@@ -50,7 +50,6 @@ def cart_page():
 
 
 @app.route('/account', methods=['GET', 'POST'])
-@cross_origin(origin='*', headers=['Content- Type', 'Authorization'])
 @login_required
 def account_page():
     form = UpdateForm(flask.request.form)
@@ -106,7 +105,8 @@ def remove_from_cart(id):
 @app.route('/checkout', methods=['GET'])
 @login_required
 def checkout():
-    return None
+    OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
+    return 'Success', 200
 
 
 @app.route('/signup', methods=['GET', 'POST'])

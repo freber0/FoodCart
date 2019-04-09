@@ -25,3 +25,16 @@ function removeFromCart(id) {
     //processing after?
     });
 }
+
+function checkout() {
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+    let init = {
+        credentials: 'same-origin',
+        method: 'GET',
+        headers: header,
+    };
+    fetch("/checkout", init).then(function(data) {
+    //processing after?
+    });
+}

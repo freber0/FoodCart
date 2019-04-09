@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block card %}
     {% for lait in data %}
+    <script type="text/javascript" src="/static/js/utils.js"></script>
     <div class="col m3">
       <div class="card large">
         <div class="card-image hoverable large" style="max-height: 100%; height:350px">
@@ -11,7 +12,7 @@
         </div>
         <div class="card-content">
           <p>{{lait[2]}} <b>{{lait[3]}} $</b></p>
-          <a class="btn-floating waves-circle orange "><i class="material-icons">add</i></a>
+          <a class="btn-floating waves-circle orange " onclick="addToCart({{lait[0]}}, 1)"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>

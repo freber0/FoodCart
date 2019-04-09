@@ -1,17 +1,15 @@
 import flask
-from foodcart.persistance import UserRepository, OrderRepository
+from foodcart.persistance import UserRepository, OrderRepository, ProductRepository
 from foodcart.models.User import User
 from flask_login import LoginManager, login_required, login_user, current_user, logout_user
 from foodcart.forms.LoginForm import LoginForm
 from foodcart.forms.SignupForm import SignupForm
 from foodcart.forms.UpdateForm import UpdateForm
-from foodcart.connection.db_utils import cursor
 from foodcart.forms.SearchForm import search
 
 app = flask.Flask(__name__)
 app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
 login_manager = LoginManager()
-
 
 
 @app.route('/')
@@ -23,9 +21,7 @@ def root_page():
 @app.route('/home')
 @login_required
 def home_page():
-    cursor.execute("USE FoodCart")
-    cursor.execute("SELECT * FROM products")
-    products = cursor.fetchall()
+    products = ProductRepository.get_all()
     return flask.render_template('accueil.html', data=products)
 
 
@@ -163,43 +159,31 @@ def unauthorized():
 
 @app.route('/fruits')
 def show_fruit():
-    cursor.execute("USE FoodCart")
-    cursor.execute("SELECT * FROM products where class_name ='fruit' ")
-    fruits = cursor.fetchall()
+    fruits = ProductRepository.get_fruit()
     return flask.render_template('fruits.html', data=fruits)
 
 
 @app.route('/legumes')
 def show_legume():
-    cursor.execute("USE FoodCart")
-    cursor.execute("SELECT * FROM products where class_name ='legume' ")
-    legumes = cursor.fetchall()
+    legumes = ProductRepository.get_legume()
     return flask.render_template('legume.html', data=legumes)
 
 
 @app.route('/viandes')
 def show_viandes():
-    cursor.execute("USE FoodCart")
-    cursor.execute("SELECT * FROM products where class_name ='viande' ")
-    viandes = cursor.fetchall()
+    viandes = ProductRepository.get_viande()
     return flask.render_template('viandes.html', data=viandes)
 
 
 @app.route('/boulangerie')
 def show_pains():
-    cursor.execute("USE FoodCart")
-    cursor.execute("SELECT * FROM products where class_name ='pain' ")
-    pains = cursor.fetchall()
+    pains = ProductRepository.get_pains()
     return flask.render_template('boulangerie.html', data=pains)
 
 
 @app.route('/produit_laitier')
 def show_lait():
-    cursor.execute("USE FoodCart")
-    cursor.execute("SELECT * FROM products where class_name ='produit_laitier' ")
-    lait = cursor.fetchall()
-    lait_droite = lait[len(lait) // 2:]
-    lait_gauche = lait[:len(lait) // 2]
+    lait = ProductRepository.get_produit_laitier()
     return flask.render_template('produit_laitier.html', data=lait)
 
 

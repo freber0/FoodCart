@@ -105,6 +105,7 @@ def remove_from_cart(id):
 @login_required
 def checkout():
     OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
+    flask.session['cart'] = []
     return 'Success', 200
 
 

@@ -13,7 +13,6 @@ app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
 login_manager = LoginManager()
 
 
-
 @app.route('/')
 @login_required
 def root_page():

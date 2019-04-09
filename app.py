@@ -95,6 +95,12 @@ def remove_from_cart(id):
     return 'Succes', 200
 
 
+@app.route('/checkout', methods=['GET'])
+@login_required
+def checkout():
+    return None
+
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if current_user.is_authenticated:

@@ -7,7 +7,7 @@ def get_user_from_username(username):
     cursor.execute("SELECT * FROM user WHERE username='" + username + "';")
     data = cursor.fetchone()
 
-    if (data is None):
+    if data is None:
         print("Nothing found")
         return
 

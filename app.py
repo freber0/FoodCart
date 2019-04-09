@@ -1,5 +1,5 @@
 import flask
-from foodcart.persistance import UserRepository
+from foodcart.persistance import UserRepository, OrderRepository
 from foodcart.models.User import User
 from flask_login import LoginManager, login_required, login_user, current_user, logout_user
 from foodcart.forms.LoginForm import LoginForm
@@ -50,7 +50,6 @@ def cart_page():
 
 
 @app.route('/account', methods=['GET', 'POST'])
-@cross_origin(origin='*', headers=['Content- Type','Authorization'])
 @login_required
 def account_page():
     form = UpdateForm(flask.request.form)
@@ -70,11 +69,44 @@ def account_page():
 @login_required
 def add_to_cart(id):
     if current_user.is_authenticated:
-        print(f"Current user id is {current_user.get_id()}")
-        print(f"Ajout du produit avec le id {id} au panier")
+        if 'cart' in flask.session:
+            if any(id in item for item in flask.session['cart']):
+                for item in flask.session['cart']:
+                    for item_id, item_qty in item.items():
+                        if item_id == id:
+                            item.update({item_id: flask.request.get_json()['quantity'] + item_qty})
+            else:
+                flask.session['cart'].append({id: flask.request.get_json()['quantity']})
+        else:
+            flask.session['cart'] = [{id: flask.request.get_json()['quantity']}]
     else:
         return flask.redirect(flask.url_for('login'))
-    return f"Ajout du produit avec le id {id} au panier"
+    flask.session.modified = True
+    print(flask.session['cart'])
+    return 'Success', 200
+
+
+@app.route('/cart/<id>', methods=['DELETE'])
+@login_required
+def remove_from_cart(id):
+    if current_user.is_authenticated:
+        if 'cart' in flask.session:
+            for item in flask.session['cart']:
+                for item_id, item_qty in item.items():
+                    if item_id == id:
+                        flask.session['cart'].remove(item)
+    else:
+        return flask.redirect(flask.url_for('login'))
+    flask.session.modified = True
+    print(flask.session['cart'])
+    return 'Succes', 200
+
+
+@app.route('/checkout', methods=['GET'])
+@login_required
+def checkout():
+    OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
+    return 'Success', 200
 
 
 @app.route('/signup', methods=['GET', 'POST'])

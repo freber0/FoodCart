@@ -13,6 +13,7 @@ app.secret_key = 'tDo4f]$QQa#mk,gyL+(+BsNQp'
 login_manager = LoginManager()
 
 
+
 @app.route('/')
 @login_required
 def root_page():
@@ -49,9 +50,9 @@ def cart_page():
 
 
 @app.route('/account', methods=['GET', 'POST'])
+@cross_origin(origin='*', headers=['Content- Type','Authorization'])
 @login_required
 def account_page():
-
     form = UpdateForm(flask.request.form)
 
     if form.validate_on_submit():
@@ -65,15 +66,19 @@ def account_page():
     return flask.render_template('account.html')
 
 
-@app.route('/cart/<id>')
+@app.route('/cart/<id>', methods=['POST'])
 @login_required
 def add_to_cart(id):
+    if current_user.is_authenticated:
+        print(f"Current user id is {current_user.get_id()}")
+        print(f"Ajout du produit avec le id {id} au panier")
+    else:
+        return flask.redirect(flask.url_for('login'))
     return f"Ajout du produit avec le id {id} au panier"
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-
     if current_user.is_authenticated:
         return flask.redirect(flask.url_for('root_page'))
 
@@ -82,7 +87,8 @@ def signup():
         user = user_loader(form.username.data)
         print(user)
         if not user:
-            user = User(form.username.data, None, form.last_name.data, form.first_name.data, form.email.data, form.address.data)
+            user = User(form.username.data, None, form.last_name.data, form.first_name.data, form.email.data,
+                        form.address.data)
             user.set_pwd(form.password.data)
             UserRepository.add_user(user)
             return flask.redirect(flask.url_for('login'))
@@ -122,11 +128,12 @@ def user_loader(user_id):
 def unauthorized():
     return flask.redirect("login")
 
+
 @app.route('/fruits')
 def show_fruit():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products where class_name ='fruit' ")
-    fruits= cursor.fetchall()
+    fruits = cursor.fetchall()
     return flask.render_template('fruits.html', data=fruits)
 
 
@@ -159,8 +166,8 @@ def show_lait():
     cursor.execute("USE FoodCart")
     cursor.execute("SELECT * FROM products where class_name ='produit_laitier' ")
     lait = cursor.fetchall()
-    lait_droite = lait[len(lait)//2:]
-    lait_gauche = lait[:len(lait)//2]
+    lait_droite = lait[len(lait) // 2:]
+    lait_gauche = lait[:len(lait) // 2]
     return flask.render_template('produit_laitier.html', data=lait)
 
 

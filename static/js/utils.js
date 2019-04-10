@@ -23,7 +23,9 @@ function removeFromCart(id) {
     };
     fetch("/cart/"+id, init).then(function(data) {
     //processing after?
+        location.reload()
     });
+
 }
 
 function checkout() {

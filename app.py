@@ -29,7 +29,6 @@ def home_page():
 @login_required
 def search_page():
     products = search()
-    print(products)
     return flask.render_template('results.html', data=products)
 
 
@@ -42,7 +41,21 @@ def about_page():
 @app.route('/cart')
 @login_required
 def cart_page():
-    return flask.render_template('cart.html')
+    cart_list = []
+    quantity_info = []
+    sous_total = 0
+    total = 0
+    for item in flask.session['cart']:
+        for item_id, item_qty in item.items():
+            info = ProductRepository.get_info_cart_item(item_id)
+            cart_list += info
+            price = ProductRepository.get_price_item(item_id)
+            sous_total = price[0][0] * int(item_qty)
+            total += sous_total
+            quantity_info.append(item_qty)
+    if not cart_list:
+        flask.flash('Votre panier est vide!')
+    return flask.render_template('cart.html', data=cart_list, quantity=quantity_info, total=total)
 
 
 @app.route('/account', methods=['GET', 'POST'])

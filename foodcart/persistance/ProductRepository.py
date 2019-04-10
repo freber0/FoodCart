@@ -41,3 +41,16 @@ def get_all():
     cursor.execute("SELECT * FROM products")
     products = cursor.fetchall()
     return products
+
+
+def get_info_cart_item(product_id):
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT * FROM products WHERE product_id ='" + product_id + "';")
+    products_info = cursor.fetchall()
+    return products_info
+
+def get_price_item(product_id):
+    cursor.execute("USE FoodCart")
+    cursor.execute("SELECT price FROM products WHERE product_id ='" + product_id + "';")
+    product_price = cursor.fetchall()
+    return product_price

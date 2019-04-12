@@ -5,13 +5,13 @@ services:
     ports:
       - "8080:5000"
     links:
-      - db 
+      - db
 
   db:
     image: mysql:8.0 
     environment:
       MYSQL_ROOT_PASSWORD: 1234
     volumes:
-      - ./db_init:/docker-entrypoint-intidb.d/:ro
+      - ./db_init/:/docker-entrypoint-intidb.d/
     ports:
-      - "4200:3306"
+      - "3306:3306"

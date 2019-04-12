@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script type="text/javascript" src="/static/js/utils.js"></script>
+     &nbsp;
+    <div class="col m3">
+
+
+    </div>
+    &nbsp;
+    <div class="col s12 m7">
+    <h2 class="header center-align"><i class="material-icons medium green-text">shopping_cart</i>Mon Panier</h2>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+            {% for message in messages %}
+                <li style="text-align: center">{{ message }}</li>
+            {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+{% for items in data %}
+    <div class="card horizontal small" >
+      <div class="card-image small">
+        <img src={{ items[4] }}>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{items[2]}} <b>{{items[3]}}$</b></p>
+            <div class="right-align">
+              <a class="btn-floating btn-large red" onclick="removeFromCart({{items[0]}})"><i class="material-icons">delete_forever</i></a>
+          </div>
+        </div>
+        <div class="card-action">
+            <p><b>Quantité : {{ quantity[loop.index0] }}</b></p>
+            <div class =right-align>
+                <p><b>Sous-total: {{items[3]*quantity[loop.index0]}}$</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+    <h5 style="padding-right: 10px; padding-bottom: 10px" align="right"><b>Total de votre panier: {{ total }} $ </b></h5>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <title>Accueil</title>
+  </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+  <script type="text/javascript" src="/static/js/materialize.js"></script>
+    <body class="d-flex flex-column h-100">
+      <nav>
+        <div class="navbar-fixed">
+            <ul class="center-align">
+                <a href="/" class="brand-logo">FoodCart<i class="material-icons">shopping_cart</i></a>
+            </ul>
+        </div>
+      </nav>
+    {% block authentication %}
+        {% endblock %}
+    </body>
+</html>

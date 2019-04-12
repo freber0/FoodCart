@@ -34,7 +34,7 @@
         <div class="card-action">
             <p><b>Quantité : {{ quantity[loop.index0] }}</b></p>
             <div class =right-align>
-                <p><b>Sous-total: {{items[3]*quantity[loop.index0]}}$</b></p>
+                <p><b>Sous-total: {{'%0.2f' % (items[3]*quantity[loop.index0])}}$</b></p>
             </div>
         </div>
       </div>

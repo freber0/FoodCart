@@ -7,3 +7,6 @@
 
 ## Flask WTF
 - https://flask-wtf.readthedocs.io/en/stable/quickstart.html
+
+## Materialize framework
+- https://materializecss.com/

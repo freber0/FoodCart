@@ -50,9 +50,10 @@ def cart_page():
             info = ProductRepository.get_info_cart_item(item_id)
             cart_list += info
             price = ProductRepository.get_price_item(item_id)
-            sous_total = price[0][0] * int(item_qty)
+            sous_total = price * int(item_qty)
             total += sous_total
             quantity_info.append(item_qty)
+    total = '%.2f' % total
     if not cart_list:
         flask.flash('Votre panier est vide!')
     return flask.render_template('cart.html', data=cart_list, quantity=quantity_info, total=total)
@@ -64,11 +65,14 @@ def account_page():
     form = UpdateForm(flask.request.form)
 
     if form.validate_on_submit():
-        user = User(current_user.get_id(), None, form.last_name.data, form.first_name.data, form.email.data,
-                    form.address.data)
-        user.set_pwd(form.password.data)
-        UserRepository.update_user(user)
-        flask.flash('Vos informations ont été mises à jour!')
+        if len(form.first_name.data) <= 20 and len(form.last_name.data) <= 20 and len(form.email.data) <= 40 and len(form.address.data) <= 80 and len(form.password.data) <= 100:
+            user = User(current_user.get_id(), None, form.last_name.data, form.first_name.data, form.email.data,
+                        form.address.data)
+            user.set_pwd(form.password.data)
+            UserRepository.update_user(user)
+            flask.flash('Vos informations ont été mises à jour!')
+        else:
+            flask.flash('Les valeurs entrées dépassent la limite admise')
         return flask.redirect(flask.url_for('account_page'))
 
     return flask.render_template('account.html')
@@ -126,16 +130,19 @@ def signup():
 
     form = SignupForm(flask.request.form)
     if form.validate_on_submit():
-        user = user_loader(form.username.data)
-        print(user)
-        if not user:
-            user = User(form.username.data, None, form.last_name.data, form.first_name.data, form.email.data,
-                        form.address.data)
-            user.set_pwd(form.password.data)
-            UserRepository.add_user(user)
-            return flask.redirect(flask.url_for('login'))
+        if len(form.username.data) <= 20 and len(form.first_name.data) <= 20 and len(form.last_name.data) <= 20 and len(form.email.data) <= 40 and len(
+                form.address.data) <= 80 and len(form.password.data) <= 100:
+            user = user_loader(form.username.data)
+            if not user:
+                user = User(form.username.data, None, form.last_name.data, form.first_name.data, form.email.data,
+                            form.address.data)
+                user.set_pwd(form.password.data)
+                UserRepository.add_user(user)
+                return flask.redirect(flask.url_for('login'))
+            else:
+                flask.flash("Ce nom d'usager est déjà utilisé. Veuillez en choisir un autre")
         else:
-            flask.flash('Ce mot de passe est déjà utilisé. Veuillez en choisir un autre')
+            flask.flash('Les valeurs entrées dépassent la limite admise')
     return flask.render_template('signup.html', form=form)
 
 
@@ -148,8 +155,11 @@ def login():
     if form.validate_on_submit():
         user = user_loader(form.username.data)
         if user and user.check_pwd(form.password.data):
-            login_user(user)
-            return flask.redirect(flask.url_for('root_page'))
+            if len(form.username.data) <= 20 and len(form.password.data) <= 100:
+                login_user(user)
+                return flask.redirect(flask.url_for('root_page'))
+            else:
+                flask.flash("Mauvais mot de passe ou nom d'usager")
         else:
             flask.flash("Mauvais mot de passe ou nom d'usager")
     return flask.render_template('login.html', form=form)
@@ -158,6 +168,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
+    flask.session['cart'] = []
     return flask.redirect("login")
 
 

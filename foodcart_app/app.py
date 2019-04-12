@@ -203,4 +203,4 @@ def show_lait():
 
 if __name__ == '__main__':
     login_manager.init_app(app)
-    app.run(debug=True)
+    app.run('0.0.0.0', 5000)

@@ -3,7 +3,7 @@ services:
   app:
     build: ./foodcart_app 
     ports:
-      - "8080:5000" 
+      - "8080:5000"
     links:
       - db 
 

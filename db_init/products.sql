@@ -62,7 +62,6 @@ VALUES
 (59, "fruit", "Raisin rouge", 2.89, "http://i.huffpost.com/gen/1509595/images/o-GRAPES-facebook.jpg"),
 (60, "fruit", "Raisin vert", 2.99, "https://www.jgfruitsetlegumes.com/wp-content/uploads/2016/05/rai_ver.jpg"),
 (61, "fruit", "Prune", 2.19, "https://www.diabetes.co.uk/blog/wp-content/uploads/2016/02/Plum-Fruit-Red-Vegetable-Slice_Medium.jpg"),
-(62, "fruit", "Pamplepouse", 2.79, "https://www.buyfruit.com.au/images/P/iStock_000005630296Small_(grapefruit_ruby)__17934.jpg"),
 (62, "fruit", "Goyave", 3.89, "http://en.fruitofood.com/client/cache/produit/468_______goyave_216.jpg"),
 (63, "viande", "Saumon", 8.99, "https://www.luximer.com/355-thickbox_default/filet-de-saumon-desarete-sans-peau-600g.jpg"),
 (64, "viande", "Homard", 14.99, "http://hungrygerald.com/wp-content/uploads/2015/08/lobster4.jpg"),

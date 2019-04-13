@@ -23,7 +23,6 @@ def add_user(user):
 
 def update_user(user):
     cursor.execute("USE FoodCart;")
-    print("hello")
     sql = "UPDATE user SET password = %s, nom = %s, prenom = %s, email = %s, address = %s WHERE username =%s "
     cursor.execute(sql, (user.password, user.lastname, user.firstname, user.email, user.address, user.username))
     mydb.commit()

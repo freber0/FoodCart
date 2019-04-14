@@ -4,7 +4,8 @@ from foodcart.models.User import User
 
 def get_user_from_username(username):
     cursor.execute("USE FoodCart;")
-    cursor.execute("SELECT * FROM user WHERE username='" + username + "';")
+    cursor.execute
+    cursor.execute("(SELECT * FROM user WHERE username= %s)", (username,))
     data = cursor.fetchone()
 
     if (data is None):

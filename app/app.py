@@ -120,7 +120,7 @@ def remove_from_cart(id):
 def checkout():
     OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
     flask.session['cart'] = []
-    return 'Success', 200
+    return flask.render_template('thankyou.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():

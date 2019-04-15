@@ -19,7 +19,9 @@ function removeFromCart(id) {
         method: 'DELETE',
         headers: header,
     };
-    fetch("/cart/"+id, init);
+    fetch("/cart/"+id, init).then(function(data) {
+        location.reload()	
+    });
 }
 
 function checkout() {

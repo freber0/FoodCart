@@ -2,7 +2,7 @@ use FoodCart;
 INSERT INTO products(product_id, class_name, name, price, image)
 VALUES
 (1, "produit_laitier","Lait", 2.50, "https://www.alimentsduquebec.com/files/20171215/can-300-55091_1513347194.jpg"),
-(2, "viande", "Filet mignon", 11.99, "http://www.lobelsculinaryclub.com/wp-content/uploads/2013/08/Lobels_Filets-1024x770.jpg"),
+(2, "viande", "Filet mignon", 11.99, "http://shop.lafrieda.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/p/r/prime_filet_mignon_2in.jpg"),
 (3, "legume", "Brocoli", 2.99, "http://sekapporchard.com/wp-content/uploads/2013/09/Broccoli.jpg"),
 (4, "fruit", "Orange", 1.99, "https://d3nevzfk7ii3be.cloudfront.net/igi/KRLMkuaBjm5mKDDP"),
 (5, "pain", "Pain Blanc", 1.49, "http://gadoua.qc.ca/wp-content/uploads/2016/09/moelleux-blanc-epais.png"),
@@ -43,7 +43,7 @@ VALUES
 (40, "legume", "Poireau", 1.79, "https://www.jardindorante.fr/110-large_default/novembre-2011-poireau.jpg"),
 (41, "legume", "Haricot", 1.79, "http://www.niffylux.com/components/com_virtuemart/shop_image/product/niffylux_00001420_M_haricots-verts-30.jpg"),
 (42, "legume", "Pois", 0.89, "http://lapetitechaumette.l.a.pic.centerblog.net/o/Petit-pois-e1460102775442.png"),
-(43, "legume", "Navet", 1.79, "https://www.cuisinedujardin.com/wp-content/uploads/2017/03/navet-shutterstock_181220684.jpg"),
+(43, "legume", "Navet", 1.79, "http://www.primeale.fr/wp-content/uploads/2016/01/NAVET.jpg"),
 (44, "legume", "Cornichon", 1.39, "https://www.jardindorante.fr/125/111.jpg"),
 (45, "legume", "Ail", 2.39, "http://www.potager-du-guimpoux.be/wp-content/uploads/2018/05/ail_0.jpg"),
 (46, "legume", "Aubergine", 2.29, "https://www.natural-organic-living.com/wp-content/uploads/2017/01/Eggplant.jpg"),
@@ -58,7 +58,7 @@ VALUES
 (55, "fruit", "Bleuet", 3.69, "http://images6.fanpop.com/image/photos/35200000/Blueberry-blueberries-35246963-1776-1492.jpg"),
 (56, "fruit", "Framboise", 2.99, "http://3.bp.blogspot.com/-_No_WTI5ZJw/UGFxQSOyBtI/AAAAAAAAAGA/srx0exFYjoA/s1600/raspberry-fruit.jpg"),
 (57, "fruit", "Papaye", 3.49, "https://foodlawlatest.files.wordpress.com/2014/07/papaya-ringworm.jpg"),
-(58, "fruit", "Abricot", 2.59, "https://www.florihana.com/images/stories/virtuemart/product/ABRICOT2.jpg"),
+(58, "fruit", "Abricot", 2.59, "http://www.monadnockoilandvinegar.com/uploads/2/6/0/7/26071578/s622544055737476414_p21_i8_w640.jpeg"),
 (59, "fruit", "Raisin rouge", 2.89, "http://i.huffpost.com/gen/1509595/images/o-GRAPES-facebook.jpg"),
 (60, "fruit", "Raisin vert", 2.99, "https://www.jgfruitsetlegumes.com/wp-content/uploads/2016/05/rai_ver.jpg"),
 (61, "fruit", "Prune", 2.19, "https://www.diabetes.co.uk/blog/wp-content/uploads/2016/02/Plum-Fruit-Red-Vegetable-Slice_Medium.jpg"),

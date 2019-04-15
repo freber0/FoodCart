@@ -4,4 +4,20 @@
      &nbsp;&nbsp;
     <h1 style="padding-top: 40px" align="center">Merci! </h1>
     &nbsp;&nbsp;
+    <div class="col s12 m7">
+    <h2 class="header">Votre commande sera expédié sous peu..</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <i class="material-icons right large">local_shipping</i>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+            <p>Votre adresse de livraison: <b>{{current_user.address}}</b></p>
+        </div>
+        <div class="card-action green-text center-align">
+          <a href="/">Retourner à la page principale</a>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

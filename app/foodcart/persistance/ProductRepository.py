@@ -49,8 +49,11 @@ def get_info_cart_item(product_id):
     products_info = cursor.fetchall()
     return products_info
 
+
 def get_price_item(product_id):
+    product_price = 0
+    args = (product_id, product_price)
     cursor.execute("USE FoodCart")
-    cursor.execute("SELECT price FROM products WHERE product_id ='" + product_id + "';")
-    product_price = cursor.fetchall()
+    product_price = cursor.callproc("FindPriceForItem", args)
+    product_price = product_price[1]
     return product_price

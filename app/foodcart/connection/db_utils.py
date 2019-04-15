@@ -1,10 +1,17 @@
 from mysql.connector import connect
 
-#Sert a faire la connection avec la BD
-mydb = connect(
-    host="localhost",
-    user="root",
-    password= "1234",
-    port="33000")
+# Sert a faire la connection avec la BD
+mydb = None
 
-cursor = mydb.cursor()
+while mydb is None:
+    try:
+        mydb = connect(
+            host="db",
+            user="root",
+            password="1234",
+            port="3306",
+            database="FoodCart")
+        cursor = mydb.cursor()
+    except:
+        pass
+

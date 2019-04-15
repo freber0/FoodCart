@@ -8,9 +8,7 @@ function addToCart(id, qte) {
         mode: 'cors',
         body: JSON.stringify({quantity: qte})
     };
-    fetch("/cart/"+id, init).then(function(data) {
-        //processing after?
-    });
+    fetch("/cart/"+id, init);
 }
 
 function removeFromCart(id) {
@@ -21,11 +19,7 @@ function removeFromCart(id) {
         method: 'DELETE',
         headers: header,
     };
-    fetch("/cart/"+id, init).then(function(data) {
-    //processing after?
-        location.reload()
-    });
-
+    fetch("/cart/"+id, init);
 }
 
 function checkout() {
@@ -36,7 +30,5 @@ function checkout() {
         method: 'GET',
         headers: header,
     };
-    fetch("/checkout", init).then(function(data) {
-    //processing after?
-    });
+    fetch("/checkout", init);
 }

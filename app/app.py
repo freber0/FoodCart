@@ -112,7 +112,7 @@ def remove_from_cart(id):
         return flask.redirect(flask.url_for('login'))
     flask.session.modified = True
     print(flask.session['cart'])
-    return 'Succes', 200
+    return 'Success', 200
 
 
 @app.route('/checkout', methods=['GET'])
@@ -121,7 +121,6 @@ def checkout():
     OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
     flask.session['cart'] = []
     return 'Success', 200
-
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():

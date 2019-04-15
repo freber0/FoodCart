@@ -6,7 +6,7 @@ import uuid
 def add_checkout_items(user: User, items):
     orderId = str(uuid.uuid1())
     cursor.execute("USE FoodCart;")
-    sql = "INSERT INTO orders (orderId, userId) VALUES (%s, %s);"
+    sql = "INSERT INTO orders (orderId, username) VALUES (%s, %s);"
     cursor.execute(sql, (orderId, user.username))
     for item in items:
         for item_id, item_qty in item.items():

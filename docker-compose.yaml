@@ -16,5 +16,6 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
     volumes:
       - ./bd_init:/docker-entrypoint-initdb.d/:ro
+      - ~/Databases/sql/FoodCart:/var/lib/mysql
     ports:
       - "4200:3306"

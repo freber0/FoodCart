@@ -7,7 +7,7 @@ while mydb is None:
     try:
         mydb = connect(
             host="db",
-            user="root",
+            user="apptester",
             password="1234",
             port="3306",
             database="FoodCart")

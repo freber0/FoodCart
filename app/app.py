@@ -114,9 +114,12 @@ def remove_from_cart(id):
 @app.route('/checkout', methods=['GET'])
 @login_required
 def checkout():
-    OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
-    flask.session['cart'] = []
-    return 'Success', 200
+    if flask.session['cart']:
+        OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
+        flask.session['cart'] = []
+        return flask.render_template('thankyou.html')
+    else:
+        return flask.redirect(flask.url_for('cart_page'))
 
 
 @app.route('/signup', methods=['GET', 'POST'])

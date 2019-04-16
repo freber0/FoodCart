@@ -16,7 +16,7 @@ def get_user_from_username(username):
 
 def add_user(user):
     cursor.execute("USE FoodCart;")
-    sql = "INSERT INTO user (username, password, nom, prenom, email, address) VALUES (%s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO user (username, password, lastname, firstname, email, address) VALUES (%s, %s, %s, %s, %s, %s)"
     cursor.execute(sql, (user.username, user.password, user.lastname, user.firstname, user.email, user.address))
     mydb.commit()
 
@@ -24,6 +24,6 @@ def add_user(user):
 def update_user(user):
     cursor.execute("USE FoodCart;")
     print("hello")
-    sql = "UPDATE user SET password = %s, nom = %s, prenom = %s, email = %s, address = %s WHERE username =%s "
+    sql = "UPDATE user SET password = %s, lastname = %s, firstname = %s, email = %s, address = %s WHERE username =%s "
     cursor.execute(sql, (user.password, user.lastname, user.firstname, user.email, user.address, user.username))
     mydb.commit()

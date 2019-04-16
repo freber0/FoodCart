@@ -95,7 +95,6 @@ def add_to_cart(id):
     else:
         return flask.redirect(flask.url_for('login'))
     flask.session.modified = True
-    print(flask.session['cart'])
     return 'Success', 200
 
 
@@ -118,9 +117,13 @@ def remove_from_cart(id):
 @app.route('/checkout', methods=['GET'])
 @login_required
 def checkout():
-    OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
-    flask.session['cart'] = []
-    return flask.render_template('thankyou.html')
+    if flask.session['cart']:
+        OrderRepository.add_checkout_items(user_loader(current_user.get_id()), flask.session['cart'])
+        flask.session['cart'] = []
+        return flask.render_template('thankyou.html')
+    else:
+        return flask.redirect(flask.url_for('cart_page'))
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():

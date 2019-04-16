@@ -10,4 +10,5 @@ BEGIN
 END //
 DELIMITER ;
 
+GRANT EXECUTE ON PROCEDURE FoodCart.FindPriceForItem to 'apptester';
 

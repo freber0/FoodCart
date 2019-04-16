@@ -1,5 +1,5 @@
 use FoodCart;
-INSERT INTO user(username, password, nom, prenom, email, address)
+INSERT INTO user(username, password, lastname, firstname, email, address)
 VALUES
 ("admin", "pbkdf2:sha256:50000$TzdTCwvI$c9fe990d83c165f1715007f4a8a41bdf832b461301d54421d01bdf39c1b65c7a", "Adam","Antoine","admin@hotmail.com","admin street"),
 ("bob12", "pbkdf2:sha256:50000$SaIBbMPP$93f1663166b195afb39cc87de05f361b690dacb95d0f10dc7c01c6adeed218a7","bob","toto","toto@hotmail.com","33 rue tata"),
